@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wanghuan.dao.UserDao">
+	<resultMap id="user" type="com.wanghuan.model.UserEntity">
+		<id column="id" property="id"/>
+		<result column="name" property="name"/>
+		<result column="sex" property="sex"/>
+		<result column="age" property="age"/>
+	</resultMap>
+	<insert id="insert">
+		<if test="userEntity != null">
+			insert into sys_user (name,sex,age)  values (#{userEntity.name},#{userEntity.sex},#{userEntity.age})
+		</if>
+	</insert>
+	<delete id="del">
+		delete from sys_user 
+		<where>
+			<if test="userEntity.id != null and userEntity.id != ''">id = #{userEntity.id}</if>
+			<if test="userEntity.name != null and userEntity.name != ''">and name = #{userEntity.name}</if>
+			<if test="userEntity.sex != null and userEntity.sex != ''">and sex = #{userEntity.sex	}</if>
+			<if test="userEntity.age != null and userEntity.age != ''">and age = #{userEntity.age}</if>
+		</where>
+	</delete>
+	<update id="update">
+		update sys_user set name = #{name},sex = #{sex},age = #{age}
+		<where>
+			id = #{id}
+		</where>
+	</update>
+	<select id="select">
+		select * from sys_user
+		<where>
+			<if test="id != null">id = #{id}</if>
+			<if test="name != null">and name = #{name}</if>
+			<if test="sex != null">and sex = #{sex}</if>
+			<if test="age != null">and age = #{age}</if>
+		</where>
+	</select>	
+	<select id="getPawByLoginName" resultType="String">
+		select passwrod from sys_user 
+		<where>
+			login_name = #{loginName}
+		</where>
+	</select>
+</mapper>
