@@ -1,5 +1,7 @@
 package com.wanghuan.controller;
 
+import java.util.Map;
+
 import javax.annotation.Resource;
 
 import org.slf4j.Logger;
@@ -47,8 +49,8 @@ public class TestController {
 		return "SUCCESS";
 	}
 	
-	@GetMapping(value = "/test")
-	String test() {
+	@PostMapping(value = "/test")
+	String test(@RequestBody Map reqMap) {
 		return "SUCCESS";
 	}
 }

@@ -1,4 +1,4 @@
-package com.wanghuan.utils;
+/*package com.wanghuan.utils;
 
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -23,3 +23,4 @@ public class WebsecurityConfig extends WebSecurityConfigurerAdapter{
 	}
 
 }
+*/
