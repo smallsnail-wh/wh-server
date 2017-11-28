@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wanghuan.dao.MenuDao">
+	<resultMap id="Menu" type="com.wanghuan.model.sys.MenuEntity">
+		<id column="id" property="id" />
+		<result column="name" property="name" />
+		<result column="url" property="url" />
+		<result column="parent_id" property="parentId" />
+		<result column="sort" property="sort" />
+		<result column="remark" property="remark" />
+		<result column="icon" property="icon" />
+	</resultMap>
+
+	<select id="getParentMenuListById" resultMap="Menu">
+		select * from sys_menu
+		<where>
+			id in (select distinct parent_id from sys_menu
+				<where>
+					id in
+					<foreach collection="ids" item="item" index="index" open="("
+						separator="," close=")">
+						#{item}	
+					</foreach>
+					
+				</where>
+			)
+			
+		</where>
+	</select>
+	<select id="getMenuListById" resultMap="Menu">
+		select * from sys_menu
+		<where>
+			id in 
+			<foreach collection="ids" item="item" index="index" open="("
+				separator="," close=")">
+				#{item}	
+			</foreach>
+		</where>
+	</select>
+	<select id="getMenuIdByRole" resultType="String">
+		select modules from
+		sys_role where id in (select role_id from r_user_role where user_id =
+		#{id})
+	</select>
+</mapper>

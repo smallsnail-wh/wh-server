@@ -1,4 +1,4 @@
-/*package com.wanghuan.utils;
+package com.wanghuan.utils;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,4 +27,3 @@ public class MyUserDetailsService implements UserDetailsService {
 	}
 
 }
-*/
