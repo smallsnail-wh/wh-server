@@ -50,7 +50,17 @@ public class TestController {
 	}
 	
 	@PostMapping(value = "/test")
-	String test(@RequestBody Map reqMap) {
+	String test() {
+		return "SUCCESS";
+	}
+	
+	@GetMapping(value = "/test")
+	String test2() {
+		return "SUCCESS";
+	}
+	
+	@PostMapping(value = "/user/queryAll")
+	String test3() {
 		return "SUCCESS";
 	}
 }

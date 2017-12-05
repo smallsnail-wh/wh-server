@@ -22,9 +22,9 @@ spring:
 mybatis:
   mapper-locations: classpath:com/wanghuan/dao/mapper/*.xml
   type-aliases-package: com.wanghuan.model
-debug: true
+
 logging:
   level:
+    org.springframework.web: DEBUG
+    org.springframework.security: DEBUG
     com.wanghuan: DEBUG
-    org.springframework: WARN
-    org.spring.springboot.dao: DEBUG
