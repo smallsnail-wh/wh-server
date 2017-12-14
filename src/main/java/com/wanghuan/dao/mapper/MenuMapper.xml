@@ -24,7 +24,6 @@
 					
 				</where>
 			)
-			
 		</where>
 	</select>
 	<select id="getMenuListById" resultMap="Menu">

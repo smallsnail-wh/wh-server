@@ -15,10 +15,10 @@ public interface MenuDao {
 	 * @param id
 	 * @return
 	 */
-	List<MenuEntity> getParentMenuListById(@Param("ids") String[] ids);
+	public List<MenuEntity> getParentMenuListById(@Param("ids") String[] ids);
 	
-	List<MenuEntity> getMenuListById(@Param("ids") String[] ids);
+	public List<MenuEntity> getMenuListById(@Param("ids") String[] ids);
 
-	String getMenuIdByRole(@Param("id") int id);
+	public List<String> getMenuIdByRole(@Param("id") int id);
 
 }

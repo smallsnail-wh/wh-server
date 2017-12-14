@@ -1,27 +1,24 @@
 package com.wanghuan.controller;
 
-import java.util.Map;
-
 import javax.annotation.Resource;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.wanghuan.model.UserEntity;
-import com.wanghuan.service.UserService;
+import com.wanghuan.model.sys.UserEntity;
+import com.wanghuan.service.sys.UserService;
 
 @RestController
 public class TestController {
 	private static final Logger log = LoggerFactory.getLogger(TestController.class);
-	@Resource(name = "userService")
+	@Resource(name = "userServiceImpl")
 	private UserService userService;
 	
 	@PostMapping(value = "/user")

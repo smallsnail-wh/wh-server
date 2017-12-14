@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
-import com.wanghuan.model.UserEntity;
+import com.wanghuan.model.sys.UserEntity;
 
 @Mapper
 public interface UserDao {
@@ -19,9 +19,9 @@ public interface UserDao {
 	public void insert(@Param("userEntity") UserEntity userEntity);
 	
 	/**
-	 * 通过登录名拿到密码
+	 * 通过登录名拿到用户信息
 	 * @return
 	 */
-	public String getPawByLoginName(@Param("loginName") String loginName);
+	public UserEntity getUserEntityByLoginName(@Param("loginName") String loginName);
 	
 }

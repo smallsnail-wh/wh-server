@@ -18,7 +18,12 @@ public class MenuServiceImpl implements MenuService {
 
 	@Override
 	public List<MenuEntity> menuList(int id) {
-		String[] ids = menuDao.getMenuIdByRole(id).split(";");
+		List<String> idList = menuDao.getMenuIdByRole(id);
+		String idstemp = "";
+		for(String idtemp : idList) {
+			idstemp = idstemp + idtemp;
+		}
+		String[] ids = idstemp.split(";");
 		List<MenuEntity> parentMenuList = menuDao.getParentMenuListById(ids);
 		List<MenuEntity> childrenMenuList = menuDao.getMenuListById(ids);
 		List<MenuEntity> menuList = new ArrayList<MenuEntity>();
