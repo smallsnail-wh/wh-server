@@ -20,7 +20,7 @@ public class MenuServiceImpl implements MenuService {
 	public List<MenuEntity> menuList(int id) {
 		List<String> idList = menuDao.getMenuIdByRole(id);
 		String idstemp = "";
-		for(String idtemp : idList) {
+		for (String idtemp : idList) {
 			idstemp = idstemp + idtemp;
 		}
 		String[] ids = idstemp.split(";");
@@ -40,6 +40,31 @@ public class MenuServiceImpl implements MenuService {
 		}
 
 		return menuList;
+	}
+
+	@Override
+	public List<MenuEntity> menusList(int pageSize, int start) {
+		return menuDao.menusList(pageSize, start);
+	}
+
+	@Override
+	public Integer menusSize(int pageSize, int start) {
+		return menuDao.menusSize(pageSize, start);
+	}
+
+	@Override
+	public void insertMenu(MenuEntity menuEntity) {
+		menuDao.insertMenu(menuEntity);
+	}
+
+	@Override
+	public void updateMenu(MenuEntity menuEntity) {
+		menuDao.updateMenu(menuEntity);
+	}
+
+	@Override
+	public void deleteMenus(List<String> groupId) {
+		menuDao.deleteMenus(groupId);
 	}
 
 }

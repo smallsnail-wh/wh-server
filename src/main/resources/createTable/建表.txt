@@ -4,7 +4,7 @@ CREATE TABLE
         id INT(10) NOT NULL AUTO_INCREMENT COMMENT 'id',
         name VARCHAR(50) COMMENT '姓名',
         login_name VARCHAR(50) COMMENT '登录名',
-        passwrod VARCHAR(225) COMMENT '密码',
+        password VARCHAR(225) COMMENT '密码',
         email VARCHAR(225) COMMENT '邮箱',
         PRIMARY KEY (id)
     )

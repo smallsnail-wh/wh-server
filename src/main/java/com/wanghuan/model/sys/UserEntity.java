@@ -8,7 +8,7 @@ public class UserEntity {
 	private int id;
 	private String loginName;
 	private String name;
-	private String passwrod;
+	private String password;
 	private String email;
 
 	public int getId() {
@@ -27,12 +27,12 @@ public class UserEntity {
 		this.name = name;
 	}
 
-	public String getPasswrod() {
-		return passwrod;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setPasswrod(String passwrod) {
-		this.passwrod = passwrod;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public String getEmail() {
@@ -53,7 +53,7 @@ public class UserEntity {
 
 	@Override
 	public String toString() {
-		return "UserEntity [id=" + id + ", loginName=" + loginName + ", name=" + name + ", passwrod=" + passwrod
+		return "UserEntity [id=" + id + ", loginName=" + loginName + ", name=" + name + ", password=" + password
 				+ ", email=" + email + "]";
 	}
 

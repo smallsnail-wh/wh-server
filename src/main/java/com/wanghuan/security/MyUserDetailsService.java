@@ -21,7 +21,7 @@ public class MyUserDetailsService implements UserDetailsService {
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		String password = userDao.getUserEntityByLoginName(username).getPasswrod();
+		String password = userDao.getUserEntityByLoginName(username).getPassword();
 		log.info(password);
 		return new User(username, password, AuthorityUtils.commaSeparatedStringToAuthorityList("admin"));
 	}
