@@ -25,22 +25,24 @@ public interface MenuDao {
 	/**
 	 * 获取menus列表
 	 * 
-	 * @param loginName
 	 * @param pageSize
-	 * @param i
+	 * @param start
+	 * @param menuId
 	 * @return
 	 */
-	public List<MenuEntity> menusList(@Param("pageSize") int pageSize, @Param("start") int start);
+	public List<MenuEntity> menusList(@Param("pageSize") int pageSize, @Param("start") int start,
+			@Param("menuId") String menuId);
 
 	/**
 	 * 获取menus列表的总量
 	 * 
-	 * @param loginName
 	 * @param pageSize
-	 * @param i
+	 * @param start
+	 * @param menuId
 	 * @return
 	 */
-	public Integer menusSize(@Param("pageSize") int pageSize, @Param("start") int start);
+	public Integer menusSize(@Param("pageSize") int pageSize, @Param("start") int start,
+			@Param("menuId") String menuId);
 
 	/**
 	 * 新建菜单信息
@@ -62,5 +64,13 @@ public interface MenuDao {
 	 * @param groupId
 	 */
 	public void deleteMenus(@Param("groupId") List<String> groupId);
+
+	/**
+	 * 通过parentId得到menus列表
+	 * 
+	 * @param parentId
+	 * @return
+	 */
+	public List<MenuEntity> menusByParentId(@Param("parentId") int parentId);
 
 }

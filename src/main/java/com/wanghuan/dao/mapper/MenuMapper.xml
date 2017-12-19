@@ -14,7 +14,12 @@
 	<!-- 获取menu列表 -->
 	<select id="menusList" resultMap="menuMap">
 	<![CDATA[select * from sys_menu]]>
-	    <![CDATA[ order by id desc ]]>
+		<where>
+			<if test="menuId != null and menuId != ''">
+				id = #{menuId} or parent_id = #{menuId}
+			</if>
+		</where>
+	    <![CDATA[ order by parent_id,id ]]>
 		<if test="pageSize != null and start != null ">
 			limit #{start},#{pageSize}
 		</if>
@@ -22,11 +27,18 @@
 	<!-- 获取user列表的总量 -->
 	<select id="menusSize" resultType="Integer">  
 	    <![CDATA[select count(*) from sys_menu]]>
+	    <where>
+			<if test="menuId != null and menuId != ''">
+				id = #{menuId} or parent_id = #{menuId}
+			</if>
+		</where>
 	</select>
 	<!-- 新建用户信息 -->
 	<insert id="insertMenu">
-		insert into sys_menu (name,url,parent_id,sort,remark,icon)
-		values (#{menuEntity.name},#{menuEntity.url},#{menuEntity.parentId},#{menuEntity.sort},#{menuEntity.remark},#{menuEntity.icon})
+		insert into sys_menu
+		(name,url,parent_id,sort,remark,icon)
+		values
+		(#{menuEntity.name},#{menuEntity.url},#{menuEntity.parentId},#{menuEntity.sort},#{menuEntity.remark},#{menuEntity.icon})
 	</insert>
 	<!-- 更新用户信息 -->
 	<update id="updateMenu">
@@ -35,7 +47,8 @@
 		url = #{menuEntity.url},
 		parent_id = #{menuEntity.parentId},
 		sort = #{menuEntity.sort},
-		remark = #{menuEntity.remark},
+		remark =
+		#{menuEntity.remark},
 		icon = #{menuEntity.icon}
 		<where>
 			id = #{menuEntity.id}
@@ -43,7 +56,7 @@
 	</update>
 	<!-- 删除用户信息 -->
 	<delete id="deleteMenus">
-		delete from sys_menu 
+		delete from sys_menu
 		<where>
 			<if test="groupId !=null">
 				id in
@@ -54,31 +67,41 @@
 			</if>
 		</where>
 	</delete>
+	<!-- 通过parentId得到menus列表 -->
+	<select id="menusByParentId" resultMap="menuMap">
+		select * from sys_menu
+		<where>
+			<if test="parentId != null">
+				parent_id = #{parentId}
+			</if>
+		</where>
+	</select>
 
 	<select id="getParentMenuListById" resultMap="menuMap">
 		select * from sys_menu
 		<where>
 			id in (select distinct parent_id from sys_menu
-				<where>
-					id in
-					<foreach collection="ids" item="item" index="index" open="("
-						separator="," close=")">
-						#{item}	
-					</foreach>
-					
-				</where>
+			<where>
+				id in
+				<foreach collection="ids" item="item" index="index" open="("
+					separator="," close=")">
+					#{item}
+				</foreach>
+			</where>
 			)
 		</where>
+		order by sort
 	</select>
 	<select id="getMenuListById" resultMap="menuMap">
 		select * from sys_menu
 		<where>
-			id in 
+			id in
 			<foreach collection="ids" item="item" index="index" open="("
 				separator="," close=")">
-				#{item}	
+				#{item}
 			</foreach>
 		</where>
+		order by sort
 	</select>
 	<select id="getMenuIdByRole" resultType="String">
 		select modules from
