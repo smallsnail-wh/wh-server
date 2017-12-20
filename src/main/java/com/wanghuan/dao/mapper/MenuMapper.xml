@@ -103,9 +103,11 @@
 		</where>
 		order by sort
 	</select>
-	<select id="getMenuIdByRole" resultType="String">
-		select modules from
-		sys_role where id in (select role_id from r_user_role where user_id =
-		#{id})
+	<!-- 获取二级菜单 -->
+	<select id="getSubmenus" resultMap="menuMap">
+		select * from sys_menu
+		<where>
+			url is not null
+		</where>
 	</select>
 </mapper>

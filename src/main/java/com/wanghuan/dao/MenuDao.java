@@ -20,8 +20,6 @@ public interface MenuDao {
 
 	public List<MenuEntity> getMenuListById(@Param("ids") String[] ids);
 
-	public List<String> getMenuIdByRole(@Param("id") int id);
-
 	/**
 	 * 获取menus列表
 	 * 
@@ -72,5 +70,11 @@ public interface MenuDao {
 	 * @return
 	 */
 	public List<MenuEntity> menusByParentId(@Param("parentId") int parentId);
+
+	/**
+	 * 获取二级菜单
+	 * @return
+	 */
+	public List<MenuEntity> getSubmenus();
 
 }

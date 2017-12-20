@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.wanghuan.dao.MenuDao;
+import com.wanghuan.dao.RoleDao;
 import com.wanghuan.model.sys.MenuEntity;
 import com.wanghuan.service.sys.MenuService;
 
@@ -15,10 +16,14 @@ public class MenuServiceImpl implements MenuService {
 
 	@Autowired
 	private MenuDao menuDao;
+	
+	@Autowired
+	private RoleDao roleDao;
 
 	@Override
 	public List<MenuEntity> menuList(int id) {
-		List<String> idList = menuDao.getMenuIdByRole(id);
+		List<String> idList = roleDao.getModulesById(id);
+		
 		String idstemp = "";
 		for (String idtemp : idList) {
 			idstemp = idstemp + idtemp;
@@ -70,6 +75,11 @@ public class MenuServiceImpl implements MenuService {
 	@Override
 	public List<MenuEntity> menusByParentId(int parentId) {
 		return menuDao.menusByParentId(parentId);
+	}
+
+	@Override
+	public List<MenuEntity> getSubmenus() {
+		return menuDao.getSubmenus();
 	}
 
 }

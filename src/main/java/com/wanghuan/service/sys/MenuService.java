@@ -64,4 +64,10 @@ public interface MenuService {
 	 */
 	List<MenuEntity> menusByParentId(int parentId);
 
+	/**
+	 * 获取二级菜单
+	 * @return
+	 */
+	List<MenuEntity> getSubmenus();
+
 }

@@ -31,6 +31,12 @@ public class MenuController {
 	@Resource(name = "userServiceImpl")
 	private UserService userService;
 
+	/**
+	 * 获取该用户的菜单权限
+	 * 
+	 * @param loginName
+	 * @return
+	 */
 	@GetMapping("/menu/{loginName}")
 	public List<MenuEntity> menuList(@PathVariable String loginName) {
 		UserEntity userEntity = userService.getUserEntityByLoginName(loginName);
@@ -104,5 +110,14 @@ public class MenuController {
 	public List<String> deleteMenus(@RequestBody List<String> groupId) {
 		menuService.deleteMenus(groupId);
 		return groupId;
+	}
+
+	/**
+	 * 获取二级菜单
+	 * @return
+	 */
+	@GetMapping("/menus/submenus")
+	public List<MenuEntity> getSubmenus() {
+		return menuService.getSubmenus();
 	}
 }
