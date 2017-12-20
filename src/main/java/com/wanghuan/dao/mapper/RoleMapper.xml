@@ -55,4 +55,8 @@
 		sys_role where id in (select role_id from r_user_role where user_id =
 		#{id})
 	</select>
+	<!-- 得到角色全部数据 -->
+	<select id="allRoles" resultMap="roleMap">
+		select * from sys_role
+	</select>
 </mapper>

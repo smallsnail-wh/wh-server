@@ -40,4 +40,9 @@ public class RoleServiceImpl implements RoleService {
 		roleDao.deleteRoles(groupId);
 	}
 
+	@Override
+	public List<RoleEntity> allRoles() {
+		return roleDao.allRoles();
+	}
+
 }

@@ -49,7 +49,7 @@ public class RoleController {
 	 * @return
 	 */
 	@PostMapping("/roles/role")
-	public RoleEntity insertrole(@RequestBody RoleEntity roleEntity) {
+	public RoleEntity insertRole(@RequestBody RoleEntity roleEntity) {
 		roleService.insertRole(roleEntity);
 		log.debug("The method is ending");
 		return roleEntity;
@@ -63,7 +63,7 @@ public class RoleController {
 	 * @return
 	 */
 	@PutMapping("/roles/{id}")
-	public RoleEntity updaterole(@RequestBody RoleEntity roleEntity, @PathVariable int id) {
+	public RoleEntity updateRole(@RequestBody RoleEntity roleEntity, @PathVariable int id) {
 		if (roleEntity.getId() == id) {
 			roleService.updateRole(roleEntity);
 		}
@@ -78,8 +78,17 @@ public class RoleController {
 	 * @return
 	 */
 	@DeleteMapping("/roles")
-	public List<String> deleteroles(@RequestBody List<String> groupId) {
+	public List<String> deleteRoles(@RequestBody List<String> groupId) {
 		roleService.deleteRoles(groupId);
 		return groupId;
+	}
+	
+	/**
+	 * 得到角色全部数据
+	 * @return
+	 */
+	@GetMapping("/roles/all")
+	public List<RoleEntity> allRoles(){
+		return roleService.allRoles();
 	}
 }

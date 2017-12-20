@@ -44,4 +44,10 @@ public interface RoleService {
 	 * @param groupId
 	 */
 	public void deleteRoles(List<String> groupId);
+
+	/**
+	 * 得到角色全部数据
+	 * @return
+	 */
+	public List<RoleEntity> allRoles();
 }

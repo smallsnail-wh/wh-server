@@ -52,4 +52,10 @@ public interface RoleDao {
 	 * @return
 	 */
 	public List<String> getModulesById(@Param("id") int id);
+
+	/**
+	 * 得到角色全部数据
+	 * @return
+	 */
+	public List<RoleEntity> allRoles();
 }
