@@ -8,25 +8,25 @@ public class RelationEntity {
 	/**
 	 * 用户ID
 	 */
-	private int userId;
+	private Integer userId;
 	/**
 	 * 角色ID
 	 */
-	private int roleId;
+	private Integer roleId;
 
-	public int getUserId() {
+	public Integer getUserId() {
 		return userId;
 	}
 
-	public void setUserId(int userId) {
+	public void setUserId(Integer userId) {
 		this.userId = userId;
 	}
 
-	public int getRoleId() {
+	public Integer getRoleId() {
 		return roleId;
 	}
 
-	public void setRoleId(int roleId) {
+	public void setRoleId(Integer roleId) {
 		this.roleId = roleId;
 	}
 
@@ -34,4 +34,5 @@ public class RelationEntity {
 	public String toString() {
 		return "RelationEntity [userId=" + userId + ", roleId=" + roleId + "]";
 	}
+
 }

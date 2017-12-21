@@ -17,9 +17,14 @@ public class WebsecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable();
-		http.authorizeRequests().anyRequest().fullyAuthenticated();
+		http.
+			authorizeRequests()
+			.antMatchers("/wh/users").hasRole("ADMIN")
+			.anyRequest()
+			.fullyAuthenticated();
 		http.formLogin().failureUrl("/login?error").permitAll();
 		http.logout().permitAll();
+		
 	}
 	
 	//配置内存模式的用户
