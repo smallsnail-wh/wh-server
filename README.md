@@ -2,7 +2,7 @@
 
 项目介绍
 --
-	spring boot项目
+	spring boot项目,与我的另外一个前端项目wh-web搭配（前后端分离）。
 
 接口设计：
 -----
