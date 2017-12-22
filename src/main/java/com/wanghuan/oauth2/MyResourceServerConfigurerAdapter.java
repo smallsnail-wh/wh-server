@@ -11,8 +11,11 @@ public class MyResourceServerConfigurerAdapter extends ResourceServerConfigurerA
 
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
-		// TODO Auto-generated method stub
-		super.configure(http);
+		http.
+		authorizeRequests()
+		.antMatchers("/users/**","/menus/**","/roles/**").hasRole("ADMIN")
+		.anyRequest()
+		.authenticated();
 	}
 
 }

@@ -1,9 +1,10 @@
-INSERT INTO sys_user (id, name, login_name, password, email) VALUES (1, '管理员', 'admin', '123', '123456@qq.com');
-INSERT INTO sys_user (id, name, login_name, password, email) VALUES (2, '小明', 'test1', '123', '123456@qq.com');
-INSERT INTO sys_user (id, name, login_name, password, email) VALUES (3, '小刚', 'test2', '123', '123@qq.com');
+INSERT INTO sys_user (id, name, login_name, password, email) VALUES (1, '管理员', 'admin', '21232f297a57a5a743894a0e4a801fc3', '123456@qq.com');
+INSERT INTO sys_user (id, name, login_name, password, email) VALUES (2, '小明', 'test1', '202cb962ac59075b964b07152d234b70', '123456@qq.com');
+INSERT INTO sys_user (id, name, login_name, password, email) VALUES (3, '小刚', 'test2', '202cb962ac59075b964b07152d234b70', '123@qq.com');
 
-INSERT INTO sys_role (id, role, modules) VALUES (1, '管理员', '4;5;6;7;8;9;');
-INSERT INTO sys_role (id, role, modules) VALUES (2, 'test1', '4;8;9;');
+INSERT INTO sys_role (id, `role`, name, modules, `describe`) VALUES (1, 'ROLE_ADMIN', '管理员', '4;5;6;', '管理员');
+INSERT INTO sys_role (id, `role`, name, modules, `describe`) VALUES (2, 'ROLE_TEST1', 'test1', '7;', '测试1');
+INSERT INTO sys_role (id, `role`, name, modules, `describe`) VALUES (3, 'ROLE_TEST2', 'test2', '9;8;', '测试2');
 
 INSERT INTO sys_menu (id, name, url, parent_id, sort, remark, icon) VALUES (1, '系统管理', null, 0, 1, null, 'ios-flower');
 INSERT INTO sys_menu (id, name, url, parent_id, sort, remark, icon) VALUES (2, '菜单2', null, 0, 2, null, 'ios-flower-outline');
@@ -15,5 +16,8 @@ INSERT INTO sys_menu (id, name, url, parent_id, sort, remark, icon) VALUES (7, '
 INSERT INTO sys_menu (id, name, url, parent_id, sort, remark, icon) VALUES (8, '子菜单31', '/base/test5', 3, 1, null, 'ios-eye');
 INSERT INTO sys_menu (id, name, url, parent_id, sort, remark, icon) VALUES (9, '子菜单32', '/base/test6', 3, 2, null, 'ios-eye-outline');
 
-INSERT INTO r_user_role (user_id, role_id) VALUES (1, 1);
 INSERT INTO r_user_role (user_id, role_id) VALUES (2, 2);
+INSERT INTO r_user_role (user_id, role_id) VALUES (3, 3);
+INSERT INTO r_user_role (user_id, role_id) VALUES (1, 1);
+INSERT INTO r_user_role (user_id, role_id) VALUES (1, 2);
+INSERT INTO r_user_role (user_id, role_id) VALUES (1, 3);

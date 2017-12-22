@@ -1,43 +1,33 @@
-CREATE TABLE
-    sys_user
-    (
-        id INT(10) NOT NULL AUTO_INCREMENT COMMENT 'id',
-        name VARCHAR(50) COMMENT '姓名',
-        login_name VARCHAR(50) NOT NULL COMMENT '登录名',
-        password VARCHAR(225) COMMENT '密码',
-        email VARCHAR(225) COMMENT '邮箱',
-        PRIMARY KEY (id, login_name)
-    )
-    ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户表';
+CREATE TABLE `sys_user` (
+  `id` int(10) NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `name` varchar(50) DEFAULT NULL COMMENT '姓名',
+  `login_name` varchar(50) NOT NULL COMMENT '登录名',
+  `password` varchar(225) DEFAULT NULL COMMENT '密码',
+  `email` varchar(225) DEFAULT NULL COMMENT '邮箱',
+  PRIMARY KEY (`id`,`login_name`)
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8 COMMENT='用户'
 
-CREATE TABLE
-    sys_role
-    (
-        id INT(10) NOT NULL AUTO_INCREMENT COMMENT 'id',
-        role VARCHAR(50) COMMENT '角色',
-        modules text COMMENT '权限',
-        PRIMARY KEY (id)
-    )
-    ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='角色表';
-    
-CREATE TABLE
-    sys_menu
-    (
-        id INT NOT NULL AUTO_INCREMENT COMMENT 'id',
-        name VARCHAR(50) COMMENT '菜单名',
-        url VARCHAR(200) COMMENT 'url',
-        parent_id INT COMMENT '父类id',
-        sort TINYINT COMMENT '排序',
-        remark text COMMENT '描述',
-        icon VARCHAR(30) COMMENT '图标',
-        PRIMARY KEY (id)
-    )
-    ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='系统菜单';
-    
-CREATE TABLE
-    r_user_role
-    (
-        user_id INT(10) COMMENT '用户ID',
-        role_id INT(10) COMMENT '角色ID'
-    )
-    ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户-角色关系表';
+CREATE TABLE `sys_role` (
+  `id` int(10) NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `role` varchar(50) NOT NULL COMMENT '角色',
+  `name` varchar(50) DEFAULT NULL COMMENT '角色名',
+  `modules` text COMMENT '权限',
+  `describe` text COMMENT '描述',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COMMENT='角色表'
+
+CREATE TABLE `sys_menu` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `name` varchar(50) DEFAULT NULL COMMENT '菜单名',
+  `url` varchar(200) DEFAULT NULL COMMENT 'url',
+  `parent_id` int(11) DEFAULT NULL COMMENT '父类id',
+  `sort` tinyint(4) DEFAULT NULL COMMENT '排序',
+  `remark` text COMMENT '描述',
+  `icon` varchar(30) DEFAULT NULL COMMENT '图标',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COMMENT='系统菜单'
+
+CREATE TABLE `r_user_role` (
+  `user_id` int(10) DEFAULT NULL COMMENT '用户ID',
+  `role_id` int(10) DEFAULT NULL COMMENT '角色ID'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户-角色关系表'

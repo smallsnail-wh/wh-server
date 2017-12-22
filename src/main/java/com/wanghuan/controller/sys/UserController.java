@@ -19,6 +19,7 @@ import com.wanghuan.model.sys.UserEntity;
 import com.wanghuan.service.sys.UserService;
 
 @RestController
+/*@PreAuthorize("hasRole('ADMI')")*/
 public class UserController {
 
 	private Logger log = LoggerFactory.getLogger(UserController.class);

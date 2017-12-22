@@ -7,7 +7,7 @@ import java.util.Iterator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.authority.AuthorityUtils;
+import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,6 +15,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 
+import com.wanghuan.dao.RoleDao;
 import com.wanghuan.dao.UserDao;
 import com.wanghuan.model.sys.UserEntity;
 
@@ -24,7 +25,10 @@ public class MyUserDetailsService implements UserDetailsService {
 	
 	@Autowired
 	UserDao userDao;
-
+	
+	@Autowired
+	RoleDao roleDao;
+	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		UserEntity userEntity = userDao.getUserEntityByLoginName(username);
@@ -34,13 +38,15 @@ public class MyUserDetailsService implements UserDetailsService {
 		String password = userEntity.getPassword();
 		log.info(password);
 		
-		/*Collection<SimpleGrantedAuthority> collection = new HashSet<SimpleGrantedAuthority>();
-        Iterator<String> iterator =  userRoleService.findRoles(user.getId()).iterator();
+		
+		Collection<SimpleGrantedAuthority> collection = new HashSet<SimpleGrantedAuthority>();
+        Iterator<String> iterator =  roleDao.getRolesByUserId(userEntity.getId()).iterator();
         while (iterator.hasNext()){
             collection.add(new SimpleGrantedAuthority(iterator.next()));
-        }*/
+        }
 		
-		return new User(username, password, AuthorityUtils.commaSeparatedStringToAuthorityList("TEST"));
+		/*return new User(username, password, AuthorityUtils.commaSeparatedStringToAuthorityList("ROLE_ADMIN"));*/
+		return new User(username, password, collection);
 	}
 
 }

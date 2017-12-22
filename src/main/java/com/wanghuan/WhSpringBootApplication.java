@@ -6,8 +6,6 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
-@RestController
-@EnableAuthorizationServer
 public class WhSpringBootApplication {
 
 	public static void main(String[] args) {

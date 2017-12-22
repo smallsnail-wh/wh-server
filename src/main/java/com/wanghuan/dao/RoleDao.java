@@ -58,4 +58,11 @@ public interface RoleDao {
 	 * @return
 	 */
 	public List<RoleEntity> allRoles();
+
+	/**
+	 * 通过UserId得到对应的role
+	 * @param id
+	 * @return
+	 */
+	public List<String> getRolesByUserId(int id);
 }
