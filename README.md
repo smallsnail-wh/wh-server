@@ -4,6 +4,12 @@
 --
 	spring boot项目,与我的另外一个前端项目wh-web搭配（前后端分离）。
 
+技术栈
+--
+ - spring boot
+ - mybatis
+ - Spring Security OAuth2
+
 接口设计：
 -----
 	RESTful
