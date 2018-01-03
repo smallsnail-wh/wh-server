@@ -20,4 +20,4 @@
 
 数据库：
 ----
-	使用mysql。（表与表数据在wh-server\src\main\resources\createTable中）
+	使用mysql。（表与表数据在wh-server\src\main\resources\createTable中,用户密码为md5加密，admin密码为admin）
