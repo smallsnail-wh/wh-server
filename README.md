@@ -2,7 +2,7 @@
 
 项目介绍
 --
-	spring boot项目,与我的另外一个前端项目wh-web搭配（前后端分离）https://github.com/smallsnail-wh/wh-web。
+	spring boot项目,与我的另外一个前端项目[wh-web](https://github.com/smallsnail-wh/wh-web)搭配（前后端分离）。
 
 技术栈
 --
