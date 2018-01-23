@@ -27,4 +27,11 @@ spring boot项目,与我的另外一个前端项目[wh-web](https://github.com/s
 
 数据库：
 ----
-	使用mysql。（表与表数据在wh-server\src\main\resources\createTable中,用户密码为md5加密，admin密码为admin）
+使用mysql。（表与表数据在wh-server\src\main\resources\createTable中,用户密码为md5加密，admin密码为admin）
+
+注：
+--
+ 1. 此后端是授权服务和资源服务在一个项目中，建议将授权服务和资源服务分离成2个项目。
+ 2. 此后端的用户token信息是存储在内存中，建议将其存储在redis中。
+ 3. 客户的详细资料是我手动在MyAuthorizationServerConfigurerAdapter中配置的，建议使用数据库配置。
+ 4. 如果你想采用上述建议，但是无从下手，请在我的github中留言。
