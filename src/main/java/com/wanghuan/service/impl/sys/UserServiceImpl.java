@@ -3,7 +3,7 @@ package com.wanghuan.service.impl.sys;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.wanghuan.dao.UserDao;
@@ -50,13 +50,15 @@ public class UserServiceImpl implements UserService {
 		} catch (NoSuchAlgorithmException e) {
 			e.printStackTrace();
 		}*/
-		userEntity.setPassword(new Md5PasswordEncoder().encodePassword(userEntity.getPassword(), null));
+		//userEntity.setPassword(new Md5PasswordEncoder().encodePassword(userEntity.getPassword(), null));
+		userEntity.setPassword("{bcrypt}"+new BCryptPasswordEncoder().encode(userEntity.getPassword()));
 		userDao.insertUser(userEntity);
 	}
 
 	@Override
 	public void updateUser(UserEntity userEntity) {
-		userEntity.setPassword(new Md5PasswordEncoder().encodePassword(userEntity.getPassword(), null));
+		//userEntity.setPassword(new Md5PasswordEncoder().encodePassword(userEntity.getPassword(), null));
+		userEntity.setPassword("{bcrypt}"+new BCryptPasswordEncoder().encode(userEntity.getPassword()));
 		userDao.updateUser(userEntity);
 	}
 

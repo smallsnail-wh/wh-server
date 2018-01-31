@@ -13,12 +13,6 @@ spring:
     host: 127.0.0.1
     port: 6379
     password: null
-    jedis:
-      pool:
-        max-idle: 300
-        max-active: 300
-        max-wait: 1000
-    timeout: 1000
 mybatis:
   mapper-locations: classpath:com/wanghuan/dao/mapper/*.xml
   type-aliases-package: com.wanghuan.model
