@@ -5,7 +5,7 @@
 
 	<groupId>com.wanghuan</groupId>
 	<artifactId>wh-spring-boot</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.2-SNAPSHOT</version>
 	<packaging>war</packaging>
 
 	<name>wh-spring-boot</name>
