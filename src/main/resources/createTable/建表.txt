@@ -5,7 +5,7 @@ CREATE TABLE `sys_user` (
   `password` varchar(225) DEFAULT NULL COMMENT '密码',
   `email` varchar(225) DEFAULT NULL COMMENT '邮箱',
   PRIMARY KEY (`id`,`login_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8 COMMENT='用户'
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='用户'
 
 CREATE TABLE `sys_role` (
   `id` int(10) NOT NULL AUTO_INCREMENT COMMENT 'id',
@@ -14,7 +14,7 @@ CREATE TABLE `sys_role` (
   `modules` text COMMENT '权限',
   `describe` text COMMENT '描述',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COMMENT='角色表'
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='角色表'
 
 CREATE TABLE `sys_menu` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
@@ -25,9 +25,24 @@ CREATE TABLE `sys_menu` (
   `remark` text COMMENT '描述',
   `icon` varchar(30) DEFAULT NULL COMMENT '图标',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COMMENT='系统菜单'
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COMMENT='系统菜单'
 
 CREATE TABLE `r_user_role` (
   `user_id` int(10) DEFAULT NULL COMMENT '用户ID',
   `role_id` int(10) DEFAULT NULL COMMENT '角色ID'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户-角色关系表'
+
+CREATE TABLE `oauth_client_details` (
+  `client_id` varchar(256) NOT NULL,
+  `resource_ids` varchar(256) DEFAULT NULL,
+  `client_secret` varchar(256) DEFAULT NULL,
+  `scope` varchar(256) DEFAULT NULL,
+  `authorized_grant_types` varchar(256) DEFAULT NULL,
+  `web_server_redirect_uri` varchar(256) DEFAULT NULL,
+  `authorities` varchar(256) DEFAULT NULL,
+  `access_token_validity` int(11) DEFAULT NULL,
+  `refresh_token_validity` int(11) DEFAULT NULL,
+  `additional_information` varchar(4096) DEFAULT NULL,
+  `autoapprove` varchar(256) DEFAULT NULL,
+  PRIMARY KEY (`client_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
