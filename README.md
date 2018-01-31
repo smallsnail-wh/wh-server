@@ -40,6 +40,7 @@ spring boot项目,与我的另外一个前端项目[wh-web](https://github.com/s
 ## 数据库：
 
 使用mysql。（表与表数据在wh-server\src\main\resources\createTable中,用户密码为BCrypt加密，用户admin的密码为admin）
+
 **设计思路** 
 
  1. 用户表sys_user：存储用户基本信息。
