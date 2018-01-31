@@ -6,7 +6,7 @@
 2. spring security 4 --> spring security 5
 3. 用户token信息，从内存存储变为redis存储
 4. 客户的详细资料由手动在MyAuthorizationServerConfigurerAdapter中配置的，改为使用数据库配置（添加了oauth_client_details表）
-5. 用户密码加密由md5加密改为BCrypt机密
+5. 用户密码加密由md5加密改为BCrypt加密
 6. 打包方式由jar改为war（可根据自己需要更改）
 
 
