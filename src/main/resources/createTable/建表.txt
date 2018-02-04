@@ -4,7 +4,7 @@ CREATE TABLE `sys_user` (
   `login_name` varchar(50) NOT NULL COMMENT '登录名',
   `password` varchar(225) DEFAULT NULL COMMENT '密码',
   `email` varchar(225) DEFAULT NULL COMMENT '邮箱',
-  PRIMARY KEY (`id`,`login_name`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='用户'
 
 CREATE TABLE `sys_role` (
