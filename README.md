@@ -48,7 +48,10 @@ spring boot项目,与我的另外一个前端项目[wh-web](https://github.com/s
  3. 菜单表sys_menu：存储菜单信息。
  4. 用户和角色关系表r_user_role：存储用户和角色的关系。 
 逻辑是sys_user表通过id关联r_user_role表得到对应的角色ids，再通过得到的角色ids关联sys_role表得到对应的菜单ids，然后通过菜单ids关联sys_menu表得到前端需要显示的菜单数据。
-
+##项目搭建
+ 1. jdk1.8+maven。
+ 2. 数据库mysql（表与表数据在wh-server\src\main\resources\createTable中,用户密码为BCrypt加密，用户admin的密码为admin） 
+ 3. redis
 ## 注：
 
  1. 此后端是授权服务和资源服务在一个项目中，建议将授权服务和资源服务分离成2个项目。
