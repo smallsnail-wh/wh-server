@@ -51,15 +51,15 @@ spring boot项目,与我的另外一个前端项目[wh-web](https://github.com/s
 
 ## 项目搭建
 
-**运行环境**
+**运行环境：**
 
   jdk1.8+maven。
   
- **数据库配置**
+ **数据库配置：**
  
  数据库mysql（表与表数据在wh-server\src\main\resources\createTable中,用户密码为BCrypt加密，用户admin的密码为admin） 
  
- **缓存配置**
+ **缓存配置：**
  
  配置redis
  
