@@ -3,9 +3,9 @@ INSERT INTO sys_user (id, name, login_name, password, email) VALUES (2, '小明'
 INSERT INTO sys_user (id, name, login_name, password, email) VALUES (3, '小刚', 'test2', '{bcrypt}$2a$10$anVOsbvMCJKgmC9pKmoqV.CMqQFktXEzb9KwQ2ILG7FBwlwHBOQwO', '123@qq.com');
 INSERT INTO sys_user (id, name, login_name, password, email) VALUES (4, '小红', 'test3', '{bcrypt}$2a$10$m1lHapKhrZ4tH05Jtu.aG.KsZalgTqOVS0MZdOtpfJDPyr9Y71qWG', '123321@qq.com');
 
-INSERT INTO sys_role (id, role, name, modules, describe) VALUES (1, 'ROLE_ADMIN', '管理员', '4;5;6;', '管理员');
-INSERT INTO sys_role (id, role, name, modules, describe) VALUES (2, 'ROLE_TEST1', 'test1', '7;', '测试1');
-INSERT INTO sys_role (id, role, name, modules, describe) VALUES (3, 'ROLE_TEST2', 'test2', '9;8;', '测试2');
+INSERT INTO sys_role (id, `role`, name, modules, `describe`) VALUES (1, 'ROLE_ADMIN', '管理员', '4;5;6;', '管理员');
+INSERT INTO sys_role (id, `role`, name, modules, `describe`) VALUES (2, 'ROLE_TEST1', 'test1', '7;', '测试1');
+INSERT INTO sys_role (id, `role`, name, modules, `describe`) VALUES (3, 'ROLE_TEST2', 'test2', '9;8;', '测试2');
 
 INSERT INTO sys_menu (id, name, url, parent_id, sort, remark, icon) VALUES (1, '系统管理', null, 0, 1, null, 'ios-flower');
 INSERT INTO sys_menu (id, name, url, parent_id, sort, remark, icon) VALUES (2, '菜单2', null, 0, 2, null, 'ios-flower-outline');
