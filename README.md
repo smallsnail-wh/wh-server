@@ -61,7 +61,7 @@ spring boot项目,与我的另外一个前端项目[wh-web](https://github.com/s
  
  **缓存配置：**
  
- 配置redis
+ 配置redis，且redis服务必须开启。
  
 ## 注：
 
