@@ -67,3 +67,8 @@ spring boot项目,与我的另外一个前端项目[wh-web](https://github.com/s
 
  1. 此后端是授权服务和资源服务在一个项目中，建议将授权服务和资源服务分离成2个项目。
  2. 如果你想采用上述建议，但是无从下手，请在我的github中留言。
+ 
+ ## 如果你项目启动有错误：
+ 
+ 1. 检查数据库是否配置好。（表与表数据在wh-server\src\main\resources\createTable中,用户密码为BCrypt加密，用户admin的密码为admin）
+ 2. 检查redis是否配置好，redis服务必须开启（检查防火墙是否打开）
