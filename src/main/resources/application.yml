@@ -7,14 +7,14 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/wanghuan?useSSL=false&amp;characterEncoding=utf-8&amp;jdbcCompliantTruncation=false&amp;zeroDateTimeBehavior=convertToNull
     username: root
-    password: root
+    password: whmtt
   redis:
     database: 0
     host: 127.0.0.1
     port: 6379
     password: null
 mybatis:
-  mapper-locations: classpath:com/wanghuan/dao/mapper/*.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml
   type-aliases-package: com.wanghuan.model
 
 logging:
