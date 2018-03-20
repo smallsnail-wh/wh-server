@@ -80,4 +80,6 @@ spring boot项目,与我的另外一个前端项目[wh-web](https://github.com/s
 		<!-- <scope>provided</scope> -->
 	</dependency>
 ```
+## 最近搞了一个服务器，将项目放到服务器上了，需要的可以看看。地址：http://39.106.190.253:8080/ ，用户：admin，密码：admin。
+## 请不要乱删数据，谢谢。
  		
