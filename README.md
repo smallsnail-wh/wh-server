@@ -9,6 +9,8 @@
 5. 用户密码加密由md5加密改为BCrypt加密
 6. 打包方式由jar改为war（可根据自己需要更改）
 
+## 2018.03.20更改类容
+将普通token在redis中存储形式 --> jwt token形式
 
 ## 项目介绍
 
@@ -27,7 +29,6 @@ spring boot项目,与我的另外一个前端项目[wh-web](https://github.com/s
  - mybatis
  - Spring Security
  - Spring Security OAuth2
- - Redis
 
 ## 接口设计：
 
@@ -59,10 +60,6 @@ spring boot项目,与我的另外一个前端项目[wh-web](https://github.com/s
  
  数据库mysql（表与表数据在wh-server\src\main\resources\createTable中,用户密码为BCrypt加密，用户admin的密码为admin） 
  
- **缓存配置：**
- 
- 配置redis，且redis服务必须开启。
- 
 ## 注：
 
  1. 此后端是授权服务和资源服务在一个项目中，建议将授权服务和资源服务分离成2个项目。
@@ -71,8 +68,7 @@ spring boot项目,与我的另外一个前端项目[wh-web](https://github.com/s
  ## 如果你项目启动有错误：
  
  1. 检查数据库是否配置好。（表与表数据在wh-server\src\main\resources\createTable中,用户密码为BCrypt加密，用户admin的密码为admin）
- 2. 检查redis是否配置好，redis服务必须开启（检查防火墙是否打开）
- 3. 如果控制台报Caused by: java.lang.ClassNotFoundException: javax.servlet.Filter错误，请更改依赖文件中的tomcat依赖范围，后期如果你需要打war包，需要将tomcat依赖范围更改回来。
+ 2. 如果控制台报Caused by: java.lang.ClassNotFoundException: javax.servlet.Filter错误，请更改依赖文件中的tomcat依赖范围，后期如果你需要打war包，需要将tomcat依赖范围更改回来。
 ```
 	<dependency>
 		<groupId>org.springframework.boot</groupId>
