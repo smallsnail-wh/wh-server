@@ -24,6 +24,7 @@ public class MyAuthorizationServerConfigurerAdapter extends AuthorizationServerC
 	@Bean
 	public JwtAccessTokenConverter jwtAccessTokenConverter() {
 		JwtAccessTokenConverter accessTokenConverter = new JwtAccessTokenConverter();
+		/*设置签名*/
 		accessTokenConverter.setSigningKey("smallsnail");
 		return accessTokenConverter;
 	}
