@@ -13,6 +13,7 @@ public class MyResourceServerConfigurerAdapter extends ResourceServerConfigurerA
 	public void configure(HttpSecurity http) throws Exception {
 		http.
 		authorizeRequests()
+		.antMatchers("/usernamepassword/token").permitAll()
 		.antMatchers("/users/**","/menus/**","/roles/**").hasRole("ADMIN")
 		.anyRequest()
 		.authenticated();
