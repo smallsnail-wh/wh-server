@@ -53,8 +53,11 @@ public class MyAuthorizationServerConfigurerAdapter extends AuthorizationServerC
 		/*redis存储token*/
 		/*endpoints.authenticationManager(authenticationManager).tokenStore(new MyRedisTokenStore(redisConnection));*/
 		/*jwt方式*/
+		/*endpoints.accessTokenConverter(jwtAccessTokenConverter());
+		endpoints.authenticationManager(authenticationManager).tokenStore(new JwtTokenStore(jwtAccessTokenConverter()));*/
+		/*jwt方式+redis存储token*/
 		endpoints.accessTokenConverter(jwtAccessTokenConverter());
-		endpoints.authenticationManager(authenticationManager).tokenStore(new JwtTokenStore(jwtAccessTokenConverter()));
+		endpoints.authenticationManager(authenticationManager).tokenStore(new MyRedisTokenStore(redisConnection));
 	}
 
 	@Override
