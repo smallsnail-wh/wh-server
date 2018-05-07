@@ -3,6 +3,7 @@
 <mapper namespace="com.wanghuan.dao.RoleDao">
 	<resultMap id="roleMap" type="com.wanghuan.model.sys.RoleEntity">
 		<id column="id" property="id" />
+		<result column="role" property="role" />
 		<result column="name" property="name" />
 		<result column="modules" property="modules" />
 		<result column="describe" property="describe" />
@@ -21,15 +22,17 @@
 	</select>
 	<!-- 新建角色信息 -->
 	<insert id="insertRole">
-		insert into sys_role (name,modules,`describe`)
+		insert into sys_role (role,name,modules,`describe`)
 		values
-		(#{roleEntity.name},#{roleEntity.modules},#{roleEntity.describe})
+		(#{roleEntity.role},#{roleEntity.name},#{roleEntity.modules},#{roleEntity.describe})
 	</insert>
 	<!-- 更新角色信息 -->
 	<update id="updateRole">
 		update sys_role set
+		role = #{roleEntity.role},
 		name = #{roleEntity.name},
-		modules = #{roleEntity.modules},
+		modules =
+		#{roleEntity.modules},
 		`describe` =
 		#{roleEntity.describe}
 		<where>

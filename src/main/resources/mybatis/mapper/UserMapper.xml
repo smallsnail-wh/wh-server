@@ -69,22 +69,25 @@
 	<!-- 新建用户信息 -->
 	<insert id="insertUser">
 		insert into sys_user (name,login_name,password,email)
-		values (#{userEntity.name},#{userEntity.loginName},#{userEntity.password},#{userEntity.email})
+		values
+		(#{userEntity.name},#{userEntity.loginName},#{userEntity.password},#{userEntity.email})
 	</insert>
 	<!-- 更新用户信息 -->
 	<update id="updateUser">
 		update sys_user set
 		name = #{userEntity.name},
-		login_name = #{userEntity.loginName},
+		login_name =
+		#{userEntity.loginName},
 		password = #{userEntity.password},
-		email = #{userEntity.email}
+		email =
+		#{userEntity.email}
 		<where>
 			id = #{userEntity.id}
 		</where>
 	</update>
 	<!-- 删除用户信息 -->
 	<delete id="deleteUsers">
-		delete from sys_user 
+		delete from sys_user
 		<where>
 			<if test="groupId !=null">
 				id in

@@ -12,6 +12,10 @@ public class RoleEntity {
 	/**
 	 * 角色
 	 */
+	private String role;
+	/**
+	 * 角色名称
+	 */
 	private String name;
 	/**
 	 * 权限
@@ -54,9 +58,12 @@ public class RoleEntity {
 		this.describe = describe;
 	}
 
-	@Override
-	public String toString() {
-		return "RoleEntity [id=" + id + ", name=" + name + ", modules=" + modules + ", describe=" + describe + "]";
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
 	}
 
 }
