@@ -85,3 +85,5 @@ spring boot项目,与我的另外一个前端项目[wh-web](https://github.com/s
 ## 2018.04.10更改类容
 jwt token形式 --> jwt形式+redis存储
  		
+## 该项目的升级版：
+https://github.com/smallsnail-wh/interest
